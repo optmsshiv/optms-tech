@@ -1,0 +1,35 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }        /* Read More Tab Styles */
+        .read-more {
+            display: none;
+        }
+
+        #read-more-toggle:checked + .read-more {
+            display: block;
+        }
+
+        label.read-more-label {
+            display: inline-block;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #read-more-toggle:checked + .read-more + label.read-more-label::before {
+            content: "Read Less";
+        }
+
+        label.read-more-label::before {
+            content: "Read More";
+        }
+
+       
+
+        

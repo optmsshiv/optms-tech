@@ -1,0 +1,32 @@
+User-agent: *
+Disallow: /private/
+Disallow: /restricted/
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /temp/
+Disallow: /uploads/
+Disallow: /download/
+Disallow: /test/
+Disallow: /summiport/
+Disallow: /under maintane/
+Disallow: /seo/
+
+# Block specific files
+Disallow: /file-to-block.html
+Disallow: /another-file-to-block.pdf
+Disallow: /404.html
+Disallow: /pages-misc-under-maintenance.html
+Disallow: /READ-ME.txt
+Disallow: /LICENSE.txt
+Disallow: /web-development.html
+Disallow: /faq.html
+Disallow: /feature.html
+Disallow: /project.html
+Disallow: /service.html
+Disallow: /team.html
+Disallow: /testimonial.html
+
+# Allow all other areas of the site to be crawled
+Allow: /

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>optms.co.in - Cookie Consent</title>
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="css/cookies_banner.css">
+</head>
+
+<body>
+    <!-- Cookies Banner -->
+    <div id="cookie-consent" class="hide">
+        <p>
+            <img src="img/cookImage.png" alt="Cookie Image" width="50" height="50"/>
+            This website uses cookies to ensure you get the best experience on our website.
+            <a href="https://www.optms.co.in/term-condition">Read terms and conditions</a>
+        </p>
+        <button id="accept-all-cookies" class="cookie-button">Accept All</button>
+        <button id="customize-cookies" class="cookie-button">Customize</button>
+    </div>
+
+    <!-- Customize Cookies Popup -->
+    <div id="cookie-settings-popup" class="cookie-popup">
+        <h2>Customize Cookie Settings</h2>
+        <label>
+            <input type="checkbox" id="essential-cookies" checked> Essential Cookies
+        </label>
+        <label>
+            <input type="checkbox" id="analytics-cookies" checked> Analytics Cookies
+        </label>
+        <button id="save-cookie-settings" class="cookie-button">Save</button>
+        <button id="close-cookie-settings" class="cookie-button">Close</button>
+    </div>
+
+    <!-- Overlay for Popup -->
+    <div class="overlay" id="cookie-overlay"></div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="js/cookies_banner_script.js"></script>
+</body>
+</html>
+****************************************************
+CSS
+****************************************************
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+#cookie-consent {
+    background-color: #fcba03;
+    position: fixed;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    font-size: 14px;
+    width: 70vw;
+    max-width: 50.00em;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    line-height: 1.8em;
+    padding: 2em 1.4em;
+    border-radius: 6px;
+    transition: all 0.5s ease-in;
+}
+
+#cookie-consent img {
+    display: block;
+    width: 3.75em;
+    margin: auto;
+}
+
+#cookie-consent p {
+    margin: 1.4em 0;
+}
+
+.cookie-button {
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.cookie-button:hover {
+    background-color: #4CAF50;
+}
+
+.cookie-popup {
+    /* Add your styles for the cookie popup here */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+#close-cookie-settings {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#close-cookie-settings:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+#cookie-consent a {
+    color: #0073e6;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#cookie-consent a:hover {
+    color: #4CAF50;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+**************************************
+js
+**************************************
+document.addEventListener("DOMContentLoaded", function () {
+    const cookieConsent = document.getElementById("cookie-consent");
+    const customizeCookiesButton = document.getElementById("customize-cookies");
+    const cookieSettingsPopup = document.getElementById("cookie-settings-popup");
+    const overlay = document.querySelector(".overlay");
+
+    // Event listener for accepting all cookies
+    const acceptAllCookiesButton = document.getElementById("accept-all-cookies");
+    acceptAllCookiesButton.addEventListener("click", function () {
+        // Set a cookie to indicate that the user has accepted all cookies
+        // You may add additional logic here if needed
+        setCookie("accept-all-cookies", "true", 365);
+        hideBanner();
+    });
+
+    // Event listener for customizing cookies
+    customizeCookiesButton.addEventListener("click", function () {
+        showPopup();
+    });
+
+    // Event listener for saving cookie settings
+    const saveCookieSettingsButton = document.getElementById("save-cookie-settings");
+    saveCookieSettingsButton.addEventListener("click", function () {
+        // Implement code to save the selected cookie preferences
+        // You can retrieve settings from checkboxes in the settings popup
+        const essentialCookies = document.getElementById("essential-cookies").checked;
+        const analyticsCookies = document.getElementById("analytics-cookies").checked;
+
+        // Set cookies based on user preferences
+        // Set essential cookies
+        setCookie("essential-cookies", essentialCookies.toString(), 365);
+        // Set analytics cookies if the user has accepted them
+        if (analyticsCookies) {
+            setCookie("analytics-cookies", "true", 365);
+        } else {
+            setCookie("analytics-cookies", "false", 365);
+        }
+
+        hidePopup();
+    });
+
+    // Event listener for closing the cookie settings popup
+    const closeCookieSettingsButton = document.getElementById("close-cookie-settings");
+    closeCookieSettingsButton.addEventListener("click", function () {
+        hidePopup();
+    });
+
+    // Display the cookie consent banner when the user scrolls 20%
+    window.addEventListener('scroll', () => {
+        if (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) >= 0.2) {
+            showBanner();
+        }
+    });
+
+    // Check if the user has previously accepted cookies
+    const userAcceptsCookies = getCookie("accept-all-cookies");
+    if (userAcceptsCookies !== "true") {
+        showBanner();
+    }
+
+    // Function to set a cookie
+    function setCookie(cname, cvalue, exdays) {
+        // Your existing setCookie function
+    }
+
+    // Function to get a cookie
+    function getCookie(cname) {
+        // Your existing getCookie function
+    }
+
+    // Function to show the banner
+    function showBanner() {
+        cookieConsent.classList.add("show");
+        cookieConsent.classList.remove("hide");
+    }
+
+    // Function to hide the banner
+    function hideBanner() {
+        cookieConsent.classList.remove("show");
+        cookieConsent.classList.add("hide");
+    }
+
+    // Function to show the popup
+    function showPopup() {
+        overlay.style.display = "block";
+        cookieSettingsPopup.style.display = "block";
+    }
+
+    // Function to hide the popup
+    function hidePopup() {
+        overlay.style.display = "none";
+        cookieSettingsPopup.style.display = "none";
+    }
+});

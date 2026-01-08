@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+	<loc>https://optms.co.in/</loc>
+	<lastmod>2023-10-09T17:35:33+01:00</lastmod>
+	<changefreq>daily</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://optms.co.in/contact</loc>
+	<lastmod>2023-10-09T17:35:37+01:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://optms.co.in/web/web</loc>
+	<lastmod>2023-10-09T17:35:41+01:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://optms.co.in/term-condition</loc>
+	<lastmod>2023-10-09T17:35:44+01:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://optms.co.in/cookies</loc>
+	<lastmod>2023-10-09T17:35:45+01:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://optms.co.in/help</loc>
+	<lastmod>2023-10-09T17:35:45+01:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://optms.co.in/about</loc>
+	<lastmod>2023-10-09T17:36:18+01:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://optms.co.in/privacy-policy</loc>
+	<lastmod>2023-10-09T17:36:26+01:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>1.0</priority>
+</url>
+</urlset>
